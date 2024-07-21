@@ -1,9 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: PruneLast=true
   name: guestbook-ui
 spec:
-  replicas: 1    #change it here to demonstrate 1 or 2
+  replicas: 1
   revisionHistoryLimit: 3
   selector:
     matchLabels:
